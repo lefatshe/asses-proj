@@ -1,0 +1,14 @@
+<form [formGroup]="form" autocomplete="off" novalidate>
+  <fieldset>
+    <legend>Register</legend>
+
+    <input placeholder="Email"  formControlName="email" #email>
+    <input placeholder="Password" type="password"  formControlName="pass" #pass>
+    <input placeholder="Confirm Password" type="password" formControlName="confirm" #confirm>
+    <!--<span class="error" *ngIf="isError('description', 'required')"> Required Field</span>-->
+    <button (click)="register()" [disabled]="!isPasswordMatch()">Register</button>
+
+  </fieldset>
+</form>
+
+

@@ -1,0 +1,12 @@
+<h1>
+  Contacts
+</h1>
+
+<table>
+  <tr *ngFor="let contact of (contacts$ | async)">
+    <td>
+      {{contact.name}} <button [routerLink]="contact.name">view</button>
+    </td>
+
+  </tr>
+</table>

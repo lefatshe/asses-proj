@@ -1,0 +1,9 @@
+<div class="navigation">
+  <a routerLink="home" routerLinkActive="nav-active">Home</a>
+  <a routerLink="contacts" routerLinkActive="nav-active">Contacts</a>
+  <a routerLink="login" routerLinkActive="nav-active" *ngIf="!authInfo?.isLoggedIn()">Login</a>
+  <a routerLink="register" routerLinkActive="nav-active" *ngIf="!authInfo?.isLoggedIn()">Register</a>
+  <span *ngIf="authInfo.$uid"> {{authInfo.$uid || "Unknown User"}}</span>
+  <a *ngIf="authInfo?.isLoggedIn()" (click)="logOut()">LogOut</a>
+</div>
+

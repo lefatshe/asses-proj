@@ -1,0 +1,5 @@
+Number of Tags {{allTags?.length}}
+<hr/>
+
+<input class="search-bar" placeholder="Search" (keyup)="search(input.value)" #input />
+<tags-list [tags]="filteredTags"></tags-list>

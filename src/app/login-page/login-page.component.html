@@ -1,0 +1,11 @@
+<form [formGroup]="form" autocomplete="off" novalidate>
+  <fieldset>
+    <legend>Login</legend>
+
+    <input placeholder="Email" name="email" formControlName="email" #description>
+    <input placeholder="Pass" type="password" name="password" formControlName="pass" #description>
+    <!--<span class="error" *ngIf="isError('description', 'required')"> Required Field</span>-->
+    <button [disabled]="" (click)="login()">Login</button>
+
+  </fieldset>
+</form>
