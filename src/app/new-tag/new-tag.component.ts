@@ -49,11 +49,11 @@ export class NewTagComponent implements OnInit {
       this.form.controls[field].errors[error]
   }
 
-  reset(){
+  reset() {
     this.form.reset()
   }
 
-  get valid(){
+  get valid() {
     return this.form.valid
   }
 

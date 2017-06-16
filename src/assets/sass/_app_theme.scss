@@ -1,9 +1,83 @@
 // App Styling here
+// ******************************
+
+// Imports styles
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 @import "../bootstrap/custom.scss";
 @import "./partials/_top-nav.scss";
 
+
+// Global Var styles
+$font-stack:    Helvetica, sans-serif;
+$primary-color: #333;
+$blue-bg: #1E8FE1;
+$dark-black-bg: #1f2532;
+$brand-font:  "brandon-grotesque",sans-serif;
+
+// Generic styles
 body {
-  color:red;
+  font: 100% $font-stack;
+  color: $primary-color;
 }
 
+.page-header {
+  position: absolute;
+  z-index: 9999;
+  top: 0;
+  margin: 0 !important;
+  padding-top: 14px;
+  border: none;
+  font-size: 22px;
+  color: white;
+}
 
+.brand-blue {
+  font-family: $brand-font;
+  color:$dark-black-bg
+}
+
+.main-btn, .sec-btn {
+  margin-top: 8px;
+  border: 2px solid #1f2532;
+  font-weight: 700;
+  font-size: 10px;
+  background: $blue-bg;
+  color: #fff;
+  display: inline-block;
+}
+
+.sec-btn{
+  background: transparent !important;
+}
+
+h3{
+  font-size: xx-large;
+}
+
+.stand-out{
+  font-family: "Arial Black";
+  text-decoration: underline;
+}
+
+.home-banner{
+  padding-top: 60px;
+}
+
+#Black_bar {
+  background: #1f2532;
+  box-shadow: 0 -2px 9px rgba(31, 37, 50, .15);
+  -webkit-transition: -webkit-transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out;
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-drag: none
+}
+
+.site-margin-setting {
+  margin-top: 70px;
+  display: block;
+}

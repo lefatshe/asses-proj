@@ -3,6 +3,7 @@ import {AuthServiceService} from "../shared/auth/auth-service.service";
 import * as firebase from "firebase/app";
 import Auth = firebase.auth.Auth;
 import {AuthInfo} from "../shared/auth/token-bearer";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'nav-menu',
@@ -12,12 +13,14 @@ import {AuthInfo} from "../shared/auth/token-bearer";
 export class NavMenuComponent implements OnInit {
 
   authInfo: AuthInfo;
+  navPosition;
 
-  constructor(private authService: AuthServiceService) { }
+  constructor(private route: ActivatedRoute, private authService: AuthServiceService) { }
 
   ngOnInit() {
-      this.authService.token$.subscribe(authInfo => this.authInfo = authInfo)
-    console.log(this.authInfo)
+      this.authService.token$.subscribe(authInfo => this.authInfo = authInfo);
+    this.navPosition = this.route.snapshot.params['id'];
+    console.log(this.navPosition);
   }
 
   logOut(){

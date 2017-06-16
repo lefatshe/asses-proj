@@ -1,0 +1,40 @@
+.navbar-fixed-top{
+  z-index: 0 !important;
+
+}
+
+nav {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li { display: inline-block; }
+
+  .key {
+    padding-top: 19px;
+    padding-left: 40px;
+  }
+
+  a {
+    display: block;
+    padding: 6px 12px;
+    text-decoration: none;
+  }
+
+  a.nav-active {
+    color: red !important;
+    border-bottom: 2px solid red;
+  }
+
+
+
+
+}
+
+
+
+
+
+
