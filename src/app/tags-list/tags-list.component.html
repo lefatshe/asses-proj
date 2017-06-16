@@ -1,7 +1,5 @@
-
-<ul>
-  <li *ngFor="let tag of tags">
-    <a href="">{{ tag.description }}</a>
-  </li>
-</ul>
+<span *ngFor="let tag of tags">
+    <label> # </label>
+    <a class="tag">{{ tag.description }} #TAGS</a>
+</span>
 

@@ -24,6 +24,8 @@ import { RegisterPageComponent } from './register-page/register-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import {AuthServiceService} from "./shared/auth/auth-service.service";
 import {AuthGuard} from "./shared/auth/auth.guard";
+import {BrowserAnimationsModule, NoopAnimationsModule} from "@angular/platform-browser/animations";
+import {MdButtonModule, MdCheckboxModule, MdInputModule, MdListModule} from "@angular/material";
 
 @NgModule({
   declarations: [
@@ -43,6 +45,10 @@ import {AuthGuard} from "./shared/auth/auth.guard";
     FormsModule,
     HttpModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
+    // Angular Material com mod
+    MdButtonModule, MdCheckboxModule, MdInputModule, MdListModule,
     AngularFireModule.initializeApp(firebaseConfig, authConfiqurations),
     RouterModule.forRoot(routerConfig)
   ],
@@ -50,3 +56,5 @@ import {AuthGuard} from "./shared/auth/auth.guard";
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+export class PizzaPartyAppModule { }
+

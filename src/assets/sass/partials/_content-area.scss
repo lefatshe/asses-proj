@@ -1,0 +1,20 @@
+.project-screen {
+  margin: 10px 30px;
+}
+
+.project-screen {
+  padding: 20px;
+  border: 1px solid #CCCCCC;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(43, 59, 93, .29);
+  -webkit-transition: -webkit-transform .3s ease-in-out, box-shadow .3s ease-in-out;
+  transition: transform .3s ease-in-out, box-shadow .3s ease-in-out;
+}
+
+span.circle-info.pull-right {
+  background: $blue-bg;
+  color: white;
+  padding: 5px;
+  font-size: 13px;
+  font-weight: bold;
+}
