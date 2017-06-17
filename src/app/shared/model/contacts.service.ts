@@ -24,15 +24,17 @@ export class ContactsService {
     }).map(results => results[0]);
   }
 
+  findTagKeysPerContactName(contactName: string): Observable<string[]> {
+    return this.findContactsByName(contactName)
+      .switchMap(contact => this.db.list(`tagsPerContact/${contact.$key}`))
+      .map(tagsInContact => tagsInContact.map(tagsInContact => tagsInContact.$key))
+  }
+
   findAllTagsForContact(contactName: string): Observable<Tags[]> {
-      const contact$ = this.findContactsByName(contactName);
 
-      const tagsPerContact$ = contact$
-        .switchMap(contact => this.db.list(`tagsPerContact/${contact.$key}`));
-
-      return tagsPerContact$
-        .map(lspc => lspc.map(lspc => this.db.object('tags/' + lspc.$key)) )
-        .flatMap(fbObj => Observable.combineLatest(fbObj) )
+    return this.findTagKeysPerContactName(contactName)
+      .map(tagsInContact => tagsInContact.map(tagsKey => this.db.object('tags/' + tagsKey)))
+      .flatMap(firebaseObservables => Observable.combineLatest(firebaseObservables))
   }
 
 }
