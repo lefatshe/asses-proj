@@ -11,6 +11,8 @@ import {Router} from "@angular/router";
 export class LoginPageComponent implements OnInit {
 
   form: FormGroup;
+  errorString: string;
+
   constructor(private fb: FormBuilder,
               private authService: AuthServiceService,
               private router: Router) { }
@@ -22,15 +24,19 @@ export class LoginPageComponent implements OnInit {
     })
   }
 
+  ifError(error){
+    this.errorString = error.message;
+  }
+
   login(){
       const formValue = this.form.value;
 
       this.authService.loginUser(formValue.email, formValue.pass)
         .subscribe(
           ()=> {
-            this.router.navigate(['/home']);
+            this.router.navigate(['/contacts']);
           },
-          err => alert(err)
+          err => this.ifError(err)
         );
   }
 

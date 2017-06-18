@@ -1,11 +1,32 @@
-<form [formGroup]="form" autocomplete="off" novalidate>
-  <fieldset>
-    <legend>Login</legend>
+<h1 class="page-header heading-types">Login</h1>
 
-    <input placeholder="Email" name="email" formControlName="email" #description>
-    <input placeholder="Pass" type="password" name="password" formControlName="pass" #description>
-    <!--<span class="error" *ngIf="isError('description', 'required')"> Required Field</span>-->
-    <button [disabled]="" (click)="login()">Login</button>
+<div class="row">
+  <div class="col-12 col-sm-4 col-lg-4 right side-area">
+    <div *ngIf="errorString" class="error-string text-center">
+      {{errorString}}
+    </div>
 
-  </fieldset>
-</form>
+    <form [formGroup]="form" autocomplete="off" novalidate>
+
+      <md-input-container class="stretched">
+        <input mdInput type="email" placeholder="Email" formControlName="email">
+      </md-input-container>
+
+      <md-input-container class="stretched">
+        <input mdInput type="password" placeholder="Password" formControlName="pass">
+      </md-input-container>
+
+      <button md-button
+              class="btn main-btn pull-right"
+              [disabled]=""
+              (click)="login()"> Login
+      </button>
+
+    </form>
+  </div>
+
+  <div class="col-12 col-sm-8 col-lg-8 main-login">
+    You currently not logged onto the application <br/>
+    if you don't have user account click <a routerLink="/register"> here </a>  to register
+  </div>
+</div>

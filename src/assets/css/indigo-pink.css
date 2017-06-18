@@ -604,7 +604,7 @@ input.mat-input-element:-webkit-autofill+.mat-input-placeholder .mat-placeholder
   color: #f44336
 }
 .mat-input-invalid .mat-input-ripple {
-  background-color: #f44336
+  background-color: #CCCCCC;
 }
 .mat-input-error {
   color: #f44336

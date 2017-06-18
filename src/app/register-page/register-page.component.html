@@ -1,14 +1,38 @@
-<form [formGroup]="form" autocomplete="off" novalidate>
-  <fieldset>
-    <legend>Register</legend>
 
-    <input placeholder="Email"  formControlName="email" #email>
-    <input placeholder="Password" type="password"  formControlName="pass" #pass>
-    <input placeholder="Confirm Password" type="password" formControlName="confirm" #confirm>
-    <!--<span class="error" *ngIf="isError('description', 'required')"> Required Field</span>-->
-    <button (click)="register()" [disabled]="!isPasswordMatch()">Register</button>
+<h1 class="page-header heading-types">Login</h1>
 
-  </fieldset>
-</form>
+<div class="row">
+  <div class="col-12 col-sm-4 col-lg-4 right side-area">
+    <form [formGroup]="form" autocomplete="off" novalidate>
 
+      <div *ngIf="errorString" class="error-string text-center">
+        {{errorString}}
+      </div>
 
+      <md-input-container class="stretched">
+        <input mdInput type="email" placeholder="Email" formControlName="email">
+      </md-input-container>
+
+      <md-input-container class="stretched">
+        <input mdInput type="password" placeholder="Password" formControlName="pass">
+      </md-input-container>
+
+      <md-input-container class="stretched">
+        <input mdInput type="password" placeholder="Confirm Password" formControlName="confirm">
+      </md-input-container>
+
+      <button md-button
+              class="btn main-btn pull-right"
+              [disabled]="!isPasswordMatch()"
+              (click)="register()"> Register User
+      </button>
+
+    </form>
+  </div>
+
+  <div class="col-12 col-sm-8 col-lg-8 main-login">
+    <i class="fa fa-address-book" aria-hidden="true"></i>
+    You currently not logged onto the application <br/>
+    if you have user account click <a routerLink="/login"> here </a>  to login
+  </div>
+</div>

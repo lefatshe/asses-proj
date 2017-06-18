@@ -11,6 +11,8 @@ import {Router} from "@angular/router";
 export class RegisterPageComponent implements OnInit {
 
   form: FormGroup;
+  errorString: string;
+
   constructor(private fb: FormBuilder,
               private authService: AuthServiceService,
               private router: Router) { }
@@ -28,15 +30,19 @@ export class RegisterPageComponent implements OnInit {
       return val && val.pass && val.pass == val.confirm
   }
 
+  ifError(error){
+    this.errorString = error.message;
+  }
+
   register(){
     const formValue = this.form.value;
 
     this.authService.signUp(formValue.email, formValue.pass)
       .subscribe(
         ()=> {
-          this.router.navigate(['/home']);
+          this.router.navigate(['/contacts']);
         },
-        err => alert(err)
+        err => this.ifError(err)
       );
   }
 

@@ -31,9 +31,9 @@ export const routerConfig: Route[] = [
       {
         path: '',
         component: ContactsComponent
-      }]
-    // ],
-    // canActivate: [AuthGuard],
+      }
+    ],
+    canActivate: [AuthGuard],
   },
   {
     path: 'login',
