@@ -5,7 +5,10 @@
 <table>
   <tr *ngFor="let contact of (contacts$ | async)">
     <td>
-      {{contact.name}} <button [routerLink]="contact.name">view</button>
+      {{contact.name}}
+      <button [routerLink]="contact.name" [queryParams]="{pushKey: contact.$key }">
+        View
+      </button>
     </td>
 
   </tr>

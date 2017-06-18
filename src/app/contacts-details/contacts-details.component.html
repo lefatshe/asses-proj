@@ -2,6 +2,17 @@
   {{ (contact$ | async)?.name}}
 </h1>
 
+
+<div>
+  <button class="btn btn-primary">Prev</button>
+  <button class="btn btn-default">Next</button>
+</div>
+
+<hr/>
+<new-tag></new-tag>
+<tags-list [tags]="tags$  | async"></tags-list>
+
+
 <hr> {{ (contact$ | async)?.name}} {{ (contact$ | async)?.surname}}
 <hr> {{ (contact$ | async)?.position}}
 <hr> {{ (contact$ | async)?.email}}
@@ -10,11 +21,6 @@
 <hr> {{ (contact$ | async)?.position}}
 <hr> {{ (contact$ | async)?.phone}}
 
-<hr/>
-<strong> Available Tags </strong>
-<tags-list [tags]="tags$  | async"></tags-list>
 
-
-<new-tag></new-tag>
 
 <!--<button (click)="addTag()"> Add New Contact </button>-->

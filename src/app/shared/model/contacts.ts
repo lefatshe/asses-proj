@@ -5,7 +5,7 @@ export class Contacts {
 
     public company:string,
     public email:string,
-    public linkedln:string,
+    public linkedIn:string,
     public name:string,
     public phone:string,
     public position:string,

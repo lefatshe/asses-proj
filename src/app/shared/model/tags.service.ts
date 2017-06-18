@@ -18,13 +18,14 @@ export class TagsService {
   }
 
   createNewtagForContact(contactId: string, tagValue: string): Observable<any> {
-    const tagToSave = Object.assign({}, tagValue, {contactId});
+
+    const tagToSave = Object.assign({}, {description:tagValue}, {contactId});
 
     const newTagKey = this.sdkDb.child('tags').push().key;
 
     let dataToSave = {};
 
-    dataToSave['tags/' + newTagKey] = dataToSave;
+    dataToSave['tags/' + newTagKey] = tagToSave;
     dataToSave [`tagsPerContact/${contactId}/${newTagKey}`] = true;
 
     return this.firebaseUpdate(dataToSave);
@@ -47,5 +48,8 @@ export class TagsService {
 
     return subject.asObservable();
   }
+
+
+
 
 }

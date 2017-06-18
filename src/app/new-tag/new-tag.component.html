@@ -3,8 +3,10 @@
     <legend>Add Tag</legend>
 
     <input placeholder="Tag Name" name="tag" formControlName="description" #description>
-    <span class="error" *ngIf="isError('description', 'required')"> Required Field</span>
-    <button [disabled]="true">ADD</button>
+    <span class="error-string" *ngIf="isError('description', 'required')"> Required Field</span>
+    <button class="btn btn-danger"
+            [disabled]="!form.valid"
+            (click)="saveTag(description.value)"> Save New Tag </button>
 
   </fieldset>
 </form>

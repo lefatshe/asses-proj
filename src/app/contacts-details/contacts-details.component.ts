@@ -23,8 +23,7 @@ export class ContactsDetailsComponent implements OnInit {
     const contactsName = this.route.snapshot.params['id'];
     // Observables
     this.contact$ = this.contactsService.findContactsByName(contactsName);
-    this.tags$ = this.contactsService.findAllTagsForContact(contactsName)
+    this.tags$ = this.contactsService.findAllTagsForContact(contactsName);
   }
-
 
 }

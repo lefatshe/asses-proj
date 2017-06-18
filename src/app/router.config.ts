@@ -5,6 +5,7 @@ import {ContactsDetailsComponent} from "./contacts-details/contacts-details.comp
 import {LoginPageComponent} from "./login-page/login-page.component";
 import {RegisterPageComponent} from "./register-page/register-page.component";
 import {AuthGuard} from "./shared/auth/auth.guard";
+import {NewTagComponent} from "./new-tag/new-tag.component";
 
 export const routerConfig: Route[] = [
   {
@@ -15,15 +16,24 @@ export const routerConfig: Route[] = [
     path: 'contacts',
     children: [
       {
-        path: ":id",
-        component: ContactsDetailsComponent
+        path: ':id',
+        children: [
+          {
+            path: '',
+            component: ContactsDetailsComponent
+          },
+          {
+            path: 'new-tag',
+            component: NewTagComponent
+          }
+        ]
       },
       {
-        path: "",
+        path: '',
         component: ContactsComponent
-      },
-    ],
-    canActivate: [AuthGuard],
+      }]
+    // ],
+    // canActivate: [AuthGuard],
   },
   {
     path: 'login',

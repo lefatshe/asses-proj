@@ -1,7 +1,11 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute} from "@angular/router";
 import {TagsService} from "../shared/model/tags.service";
+import {Contacts} from "../shared/model/contacts";
+import {Observable} from "rxjs/Observable";
+import {ContactsService} from "../shared/model/contacts.service";
+
 
 @Component({
   selector: 'new-tag',
@@ -11,18 +15,18 @@ import {TagsService} from "../shared/model/tags.service";
 export class NewTagComponent implements OnInit {
 
   form: FormGroup;
-  tagContact: string;
+  contactId: string;
 
   constructor(private route: ActivatedRoute,
               private fb: FormBuilder,
-              private tagService: TagsService) {
+              private tagService: TagsService,
+              private contactsService: ContactsService) {
 
   }
 
   ngOnInit() {
-    const contactsName = this.route.snapshot.params['id'];
-    this.tagContact = contactsName;
-
+    this.contactId = this.route.snapshot.queryParams['pushKey'];
+    console.log('Contact Push-Key is ', this.contactId);
 
     this.form = this.fb.group({
       description: ['', Validators.required]
@@ -31,16 +35,16 @@ export class NewTagComponent implements OnInit {
 
   saveTag(tag, form) {
     console.log('Adding Tag', tag);
-    console.log('Under Contact', this.tagContact);
+    console.log('Under Contact', this.contactId);
 
-    // this.tagService.createNewtagForContact(this.tagContact, tag)
-    //   .subscribe(
-    //     () => {
-    //       alert("Tag created");
-    //       form.reset()
-    //     },
-    //     err => alert(`err ${err}`)
-    //   );
+    this.tagService.createNewtagForContact(this.contactId, tag)
+      .subscribe(
+        () => {
+          alert("Tag created successfully");
+          tag = '';
+        },
+        err => alert(`err ${err}`)
+      );
   }
 
   isError(field: string, error: string) {
@@ -56,5 +60,6 @@ export class NewTagComponent implements OnInit {
   get valid() {
     return this.form.valid
   }
+
 
 }

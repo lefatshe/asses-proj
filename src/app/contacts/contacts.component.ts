@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ContactsService} from "../shared/model/contacts.service";
 import {Observable} from "rxjs/Observable";
 import {Contacts} from "../shared/model/contacts";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-contacts',
@@ -13,7 +14,7 @@ export class ContactsComponent implements OnInit {
   contacts$: Observable<Contacts[]>;
 
 
-  constructor(private contactsService: ContactsService) {
+  constructor(private contactsService: ContactsService, private router: ActivatedRoute) {
   }
 
   ngOnInit() {
