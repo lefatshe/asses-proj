@@ -1,12 +1,25 @@
 <!--<h1 class="page-header heading-types">Contacts Details</h1>-->
+<div class="controls pull-right">
+  <div class="btn-group">
+    <button type="button" class="btn btn-blu" routerLink="/contacts">Back</button>
+    <button type="button" class="btn btn-blu">Edit</button>
+    <button type="button" class="btn btn-blu">Remove</button>
+  </div>
+</div>
+
+<div class="row">
+  <img class=" col-12 col-sm-2 col-lg-2 img-circle bg-circle" width="180px" src="../../assets/images/duh-log.png">
+  <span class="col-12 col-sm-10 col-lg-10 conact-bar">
+    <h3>{{ (contact$ | async)?.name}} {{ (contact$ | async)?.surname}}</h3>
+    <strong>{{ (contact$ | async)?.position}}</strong> at {{ (contact$ | async)?.company}}
+  </span>
+</div>
+
+<hr/>
+
 
 <div class="row">
   <div class="col-12 col-sm-4 col-lg-4 right side-area text-center">
-    <img class="img-circle bg-circle" width="180px" src="../../assets/images/duh-log.png">
-    <h4>{{ (contact$ | async)?.name}} {{ (contact$ | async)?.surname}}</h4>
-    <span>{{ (contact$ | async)?.position}}</span>
-
-    <hr/>
     <div class="project-screen">
 
       <new-tag></new-tag>
@@ -18,15 +31,6 @@
   </div>
 
   <div class="col-12 col-sm-8 col-lg-8 main-contact-details">
-    <div class="controls">
-      <div class="btn-group">
-        <button type="button" class="btn" routerLink="/contacts">Back</button>
-        <button type="button" class="btn">Edit</button>
-        <button type="button" class="btn">Remove</button>
-      </div>
-    </div>
-
-
     <ul class="list-group">
       <li class="list-group-item"><span>Name</span> {{ (contact$ | async)?.name}}</li>
       <li class="list-group-item"><span>Surname</span> {{ (contact$ | async)?.surname}}</li>

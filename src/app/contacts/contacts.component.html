@@ -13,7 +13,6 @@
   </div>
 
   <div class="col-12 col-sm-8 col-lg-8 main-contact">
-    <!--<span class="circle-info pull-right">{{allContacts?.length}}</span>-->
-    <contact-list [contacts]="filteredContacts" ></contact-list>
+    <contact-list *ngIf="contactListStatus" [contacts]="filteredContacts" ></contact-list>
   </div>
 </div>

@@ -16,6 +16,7 @@ export class ContactsComponent implements OnInit {
   allContacts: Contacts[];
   filteredContacts: Contacts[];
 
+  contactListStatus: boolean;
 
   constructor(private contactsService: ContactsService, private router: ActivatedRoute) {
   }
@@ -25,6 +26,10 @@ export class ContactsComponent implements OnInit {
   // }
 
   ngOnInit() {
+    this.contactListStatus = false;
+  }
+
+  hashKey(){
     this.contactsService.findAllContacts()
       .do(console.log)
       .subscribe(
@@ -34,8 +39,17 @@ export class ContactsComponent implements OnInit {
 
 
   search(search: string) {
-    let searchValue = search;
-    this.filteredContacts = this.allContacts.filter(contact => contact.name.includes(searchValue))
+
+    var retrieveAll = "#";
+      if(search === retrieveAll){
+        this.contactListStatus = true;
+        this.hashKey();
+      } else{
+        this.contactListStatus = false;
+      }
+
+    // let searchValue = search;
+    // this.filteredContacts = this.allContacts.filter(contact => contact.name.includes(searchValue))
   }
 
 }
