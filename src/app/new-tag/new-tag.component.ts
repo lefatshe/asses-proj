@@ -6,6 +6,7 @@ import {Contacts} from "../shared/model/contacts";
 import {Observable} from "rxjs/Observable";
 import {ContactsService} from "../shared/model/contacts.service";
 
+import {Message} from 'primeng/primeng';
 
 @Component({
   selector: 'new-tag',
@@ -16,6 +17,7 @@ export class NewTagComponent implements OnInit {
 
   form: FormGroup;
   contactId: string;
+  msgs: Message[] = [];
 
   constructor(private route: ActivatedRoute,
               private fb: FormBuilder,
@@ -40,7 +42,8 @@ export class NewTagComponent implements OnInit {
     this.tagService.createNewtagForContact(this.contactId, tag)
       .subscribe(
         () => {
-          alert("Tag created successfully");
+          this.msgs = [];
+          this.msgs.push({severity:'info', summary:'New Tag Added', detail:tag});
           tag = '';
         },
         err => alert(`err ${err}`)

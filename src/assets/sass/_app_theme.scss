@@ -16,6 +16,16 @@ body {
   color: $primary-color;
 }
 
+.ui-growl-item{
+  margin-top: 40px;
+}
+
+.ui-growl .ui-growl-message-info {
+  background-color: #0275d8;
+  color: white;
+  text-align: left;
+}
+
 .controls {
   margin-bottom: 15px;
 }

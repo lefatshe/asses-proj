@@ -27,6 +27,7 @@ import {AuthGuard} from "./shared/auth/auth.guard";
 import {BrowserAnimationsModule, NoopAnimationsModule} from "@angular/platform-browser/animations";
 import {MdButtonModule, MdCardModule, MdCheckboxModule, MdInputModule, MdListModule} from "@angular/material";
 import { ContactListComponent } from './contact-list/contact-list.component';
+import {GrowlModule} from 'primeng/primeng';
 
 @NgModule({
   declarations: [
@@ -49,9 +50,8 @@ import { ContactListComponent } from './contact-list/contact-list.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     NoopAnimationsModule,
-    // Angular Material com mod
     MdButtonModule, MdCheckboxModule, MdInputModule, MdListModule, MdCardModule,
-    // Prime Ng
+    GrowlModule,
     AngularFireModule.initializeApp(firebaseConfig, authConfiqurations),
     RouterModule.forRoot(routerConfig)
   ],

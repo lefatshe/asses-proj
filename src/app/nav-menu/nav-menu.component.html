@@ -1,16 +1,8 @@
-<!--<div class="navigation">-->
-  <!--<a routerLink="home" routerLinkActive="nav-active">Home</a>-->
-  <!--<a routerLink="contacts" routerLinkActive="nav-active">Contacts</a>-->
-  <!--<a routerLink="login" routerLinkActive="nav-active" *ngIf="!authInfo?.isLoggedIn()">Login</a>-->
-  <!--<a routerLink="register" routerLinkActive="nav-active" *ngIf="!authInfo?.isLoggedIn()">Register</a>-->
-  <!--<span *ngIf="authInfo.$uid"> {{authInfo.$uid || "Unknown User"}}</span>-->
-  <!--<a *ngIf="authInfo?.isLoggedIn()" (click)="logOut()">LogOut</a>-->
-<!--</div>-->
-
 <nav id="Black_bar" class="navbar navbar-default navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+              aria-expanded="false" aria-controls="navbar">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -20,18 +12,30 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
-        <li *ngIf="authInfo?.isLoggedIn()"><a routerLink="home" routerLinkActive="nav-active" class="loggin-menu">Home</a></li>
-        <li *ngIf="authInfo?.isLoggedIn()"><a routerLink="contacts" routerLinkActive="nav-active"  class="loggin-menu">Contacts</a></li>
+        <li *ngIf="authInfo?.isLoggedIn()"><a routerLink="home" routerLinkActive="nav-active"
+                                              class="loggin-menu">Home</a></li>
+        <li *ngIf="authInfo?.isLoggedIn()"><a routerLink="contacts" routerLinkActive="nav-active" class="loggin-menu">Contacts</a>
+        </li>
 
-        <li><button class=" btn sec-btn" routerLink="register" routerLinkActive="nav-active" *ngIf="!authInfo?.isLoggedIn()">Register</button></li>
-        <li><button class=" btn main-btn" routerLink="login" routerLinkActive="nav-active" *ngIf="!authInfo?.isLoggedIn()">Login</button></li>
+        <li>
+          <button class=" btn sec-btn" routerLink="register" routerLinkActive="nav-active"
+                  *ngIf="!authInfo?.isLoggedIn()">Register
+          </button>
+        </li>
+        <li>
+          <button class=" btn main-btn" routerLink="login" routerLinkActive="nav-active"
+                  *ngIf="!authInfo?.isLoggedIn()">Login
+          </button>
+        </li>
 
         <li *ngIf="authInfo?.isLoggedIn()" class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+             aria-expanded="false">
             Hello <strong>{{authInfo.$uid | slice:0:6}} - user</strong> <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
-            <li class="text-center"><a href=""><img class="img-circle bg-circle" width="40px" src="../../assets/images/duh-log.png" ></a> </li>
+            <li class="text-center"><a href=""><img class="img-circle bg-circle" width="40px"
+                                                    src="../../assets/images/duh-log.png"></a></li>
             <li role="separator" class="divider"></li>
             <li><a href="#" (click)="logOut()">Log Out</a></li>
           </ul>
