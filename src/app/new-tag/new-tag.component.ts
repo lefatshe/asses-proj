@@ -25,7 +25,7 @@ export class NewTagComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.contactId = this.route.snapshot.queryParams['pushKey'];
+    this.contactId = this.route.snapshot.queryParams['contactId'];
     console.log('Contact Push-Key is ', this.contactId);
 
     this.form = this.fb.group({

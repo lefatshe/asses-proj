@@ -8,11 +8,15 @@ import {switchMap} from "rxjs/operator/switchMap";
 @Injectable()
 export class ContactsService {
 
-  constructor(private db: AngularFireDatabase) {
+  constructor(private db: AngularFireDatabase, private af: AngularFire, ) {
   }
 
+  // findAllContacts(): Observable<Contacts[]> {
+  //   return this.db.list('contacts').map(Contacts.fromJsonArray);
+  // }
+
   findAllContacts(): Observable<Contacts[]> {
-    return this.db.list('contacts').map(Contacts.fromJsonArray);
+    return this.af.database.list('contacts');
   }
 
   findContactsByName(contactName: string): Observable<Contacts> {

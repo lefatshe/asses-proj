@@ -1,0 +1,16 @@
+<div *ngFor="let contact of contacts" class="project-screen">
+  <span class="img-circle bg-circle">{{contact.name | slice:0:1}}</span>
+
+  <span class="contact">
+    {{ contact.name }} {{ contact.surname }}
+    <small class="cap">{{ contact.position }} at {{ contact.company }}</small>
+  </span>
+
+  <div class="pull-right">
+    <a [routerLink]="contact.name" class="more"
+       [queryParams]="{contactId: contact.$key }">
+       <img src="../../assets/images/svg/more.svg" width="20px">
+    </a>
+  </div>
+
+</div>

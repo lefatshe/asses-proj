@@ -13,12 +13,29 @@ export class ContactsComponent implements OnInit {
 
   contacts$: Observable<Contacts[]>;
 
+  allContacts: Contacts[];
+  filteredContacts: Contacts[];
+
 
   constructor(private contactsService: ContactsService, private router: ActivatedRoute) {
   }
 
+  // ngOnInit() {
+  //   this.contacts$ = this.contactsService.findAllContacts()
+  // }
+
   ngOnInit() {
-    this.contacts$ = this.contactsService.findAllContacts()
+    this.contactsService.findAllContacts()
+      .do(console.log)
+      .subscribe(
+        tags => this.allContacts = this.filteredContacts = tags
+      )
+  }
+
+
+  search(search: string) {
+    let searchValue = search;
+    this.filteredContacts = this.allContacts.filter(contact => contact.name.includes(searchValue))
   }
 
 }

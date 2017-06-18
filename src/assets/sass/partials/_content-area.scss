@@ -1,15 +1,22 @@
 
 .project-screen {
-  margin: 10px 30px;
-}
-
-.project-screen {
+  margin-bottom: 10px;
   padding: 20px;
   border: 1px solid #CCCCCC;
   border-radius: 4px;
   box-shadow: 0 1px 2px rgba(43, 59, 93, .29);
   -webkit-transition: -webkit-transform .3s ease-in-out, box-shadow .3s ease-in-out;
   transition: transform .3s ease-in-out, box-shadow .3s ease-in-out;
+}
+
+.cap {
+  color: #1E8FE1;
+  padding-left: 18px;
+}
+
+.contact {
+  font-size: 16px;
+  padding-left: 18px;
 }
 
 span.circle-info.pull-right {
@@ -29,4 +36,15 @@ span.circle-info.pull-right {
 .main-login {
   padding: 10%;
   text-align: center;
+}
+
+md-card.mat-card {
+  margin-bottom: 18px;
+}
+
+.bg-circle {
+  background: #1E8FE1;
+  color: white;
+  padding: 2px 5px;
+  font-weight: bold;
 }

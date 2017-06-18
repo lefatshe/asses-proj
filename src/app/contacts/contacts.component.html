@@ -1,15 +1,19 @@
-<h1>
-  Contacts
-</h1>
+<h1 class="page-header heading-types">Contacts</h1>
 
-<table>
-  <tr *ngFor="let contact of (contacts$ | async)">
-    <td>
-      {{contact.name}}
-      <button [routerLink]="contact.name" [queryParams]="{pushKey: contact.$key }">
-        View
-      </button>
-    </td>
+<div class="row">
+  <div class="col-12 col-sm-4 col-lg-4 right side-area">
 
-  </tr>
-</table>
+    <md-input-container class="stretched">
+      <input class="text-capitalize"
+             mdInput placeholder="Search Contacts" type="search"
+             (keyup)="search(input.value)"
+             #input>
+    </md-input-container>
+
+  </div>
+
+  <div class="col-12 col-sm-8 col-lg-8 main-contact">
+    <!--<span class="circle-info pull-right">{{allContacts?.length}}</span>-->
+    <contact-list [contacts]="filteredContacts" ></contact-list>
+  </div>
+</div>

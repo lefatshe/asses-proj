@@ -25,7 +25,8 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import {AuthServiceService} from "./shared/auth/auth-service.service";
 import {AuthGuard} from "./shared/auth/auth.guard";
 import {BrowserAnimationsModule, NoopAnimationsModule} from "@angular/platform-browser/animations";
-import {MdButtonModule, MdCheckboxModule, MdInputModule, MdListModule} from "@angular/material";
+import {MdButtonModule, MdCardModule, MdCheckboxModule, MdInputModule, MdListModule} from "@angular/material";
+import { ContactListComponent } from './contact-list/contact-list.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import {MdButtonModule, MdCheckboxModule, MdInputModule, MdListModule} from "@an
     ContactsDetailsComponent,
     NewTagComponent,
     RegisterPageComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    ContactListComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +50,8 @@ import {MdButtonModule, MdCheckboxModule, MdInputModule, MdListModule} from "@an
     BrowserAnimationsModule,
     NoopAnimationsModule,
     // Angular Material com mod
-    MdButtonModule, MdCheckboxModule, MdInputModule, MdListModule,
+    MdButtonModule, MdCheckboxModule, MdInputModule, MdListModule, MdCardModule,
+    // Prime Ng
     AngularFireModule.initializeApp(firebaseConfig, authConfiqurations),
     RouterModule.forRoot(routerConfig)
   ],

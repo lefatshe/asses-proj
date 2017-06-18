@@ -16,6 +16,10 @@ body {
   color: $primary-color;
 }
 
+.controls {
+  margin-bottom: 15px;
+}
+
 .page-header {
   position: fixed;
   z-index: 9999;
@@ -43,6 +47,13 @@ body {
   background: $blue-bg;
   color: #fff;
   display: inline-block;
+}
+
+.list-group span {
+  clear: both;
+  display: block;
+  color: gray;
+  font-size: x-small;
 }
 
 .sec-btn{
