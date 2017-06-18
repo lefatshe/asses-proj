@@ -1,25 +1,30 @@
 export const dbData = {
   "contacts": [
     {
-      "name": "sechaba",
-      "surname": "Mothobi",
+      "name": "Hanny",
+      "surname": "Smith",
       "phone": "0780568815",
-      "email": "sechaba@gmail.com",
-      "linkedIn": "http://linkedin.com/sech",
-      "company": "FNB",
-      "position": "Developer",
+      "email": "hen@gmail.com",
+      "linkedIn": "http://linkedin.com/hen",
+      "company": "AFRO MAX",
+      "position": "Director",
       "tags": [
         {
-          "description": "CSS",
-        },
+          "description": "planning"
+        }
+      ]
+    },
+    {
+      "name": "Joey",
+      "surname": "Flanch",
+      "phone": "078055464",
+      "email": "Joe@gmail.com",
+      "linkedIn": "http://linkedin.com/hen",
+      "company": "Momentum MAX",
+      "position": "JAVA Developer",
+      "tags": [
         {
-          "description": "HTML",
-        },
-        {
-          "description": "JS",
-        },
-        {
-          "description": "PHP",
+          "description": "Java ES"
         }
       ]
     }

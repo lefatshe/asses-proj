@@ -35,9 +35,9 @@ dbData.contacts.forEach( contact => {
     console.log('Adding tag ', tag.description);
 
     tagKeysPerContact.push(tagsRef.push({
-        description: tag.description,
-        courseId: contactRef.key
-      }).key);
+      description: tag.description,
+      contactId: contactRef.key
+    }).key);
 
   });
 
