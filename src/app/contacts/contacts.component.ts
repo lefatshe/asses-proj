@@ -26,10 +26,11 @@ export class ContactsComponent implements OnInit {
   // }
 
   ngOnInit() {
+    this.hashKey();
     this.contactListStatus = false;
   }
 
-  hashKey(){
+  hashKey() {
     this.contactsService.findAllContacts()
       .do(console.log)
       .subscribe(
@@ -37,19 +38,28 @@ export class ContactsComponent implements OnInit {
       )
   }
 
+  FreeTextSearch(search) {
+
+  }
+
+  searchValue(search: string) {
+    let searchValue = search;
+    this.filteredContacts = this.allContacts.filter(contact => contact.name.includes(searchValue))
+  }
+
 
   search(search: string) {
+    if (search === '#') {
+      this.contactListStatus = true;
+    } else {
+      this.searchValue(search)
+      this.contactListStatus = true;
+    }
 
-    var retrieveAll = "#";
-      if(search === retrieveAll){
-        this.contactListStatus = true;
-        this.hashKey();
-      } else{
-        this.contactListStatus = false;
-      }
+    if (search === '') {
+      this.contactListStatus = false;
+    }
 
-    // let searchValue = search;
-    // this.filteredContacts = this.allContacts.filter(contact => contact.name.includes(searchValue))
   }
 
 }

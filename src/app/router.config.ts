@@ -33,7 +33,7 @@ export const routerConfig: Route[] = [
         component: ContactsComponent
       }
     ],
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
   },
   {
     path: 'login',

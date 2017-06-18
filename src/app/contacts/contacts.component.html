@@ -12,7 +12,12 @@
 
   </div>
 
-  <div class="col-12 col-sm-8 col-lg-8 main-contact">
-    <contact-list *ngIf="contactListStatus" [contacts]="filteredContacts" ></contact-list>
+  <div class="col-12 col-sm-8 col-lg-8 main-login" *ngIf="!contactListStatus">
+    Type <a href=""> # </a> into the search box it should display a list of tags here.
+    Clicking on a tag will display more details of contact
+  </div>
+
+  <div class="col-12 col-sm-8 col-lg-8 main-contact" *ngIf="contactListStatus">
+    <contact-list [contacts]="filteredContacts" ></contact-list>
   </div>
 </div>
