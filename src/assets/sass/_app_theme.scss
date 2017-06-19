@@ -25,6 +25,10 @@ body {
   margin-top: 40px;
 }
 
+.list-group strong{
+  color: $blue-bg;
+}
+
 .ui-growl .ui-growl-message-info {
   background-color: #0275d8;
   color: white;

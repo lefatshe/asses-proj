@@ -4,24 +4,25 @@
   <div class="col-12 col-sm-4 col-lg-4 right side-area">
 
     <md-input-container class="stretched">
-      <input class="text-capitalize"
-             mdInput placeholder="Search Contacts" type="search"
-             [(ngModel)]="term"
-             #input>
+      <input mdInput placeholder="Search" type="search" [(ngModel)]="term">
     </md-input-container>
 
-    <ul>
-      <li *ngFor="let contact of allContacts | customSearch:term">
-        {{contact.name}} {{contact.surname}} @ {{contact.company}}
+    <ul class="list-group">
+      <li *ngFor="let contact of allContacts | customSearch:term"
+          class="list-group-item">
+        <strong>{{contact.name}} {{contact.surname}}</strong>
+            <br/> {{contact.position}} at {{contact.company}}
       </li>
     </ul>
 
+
   </div>
 
-  <!--<div class="col-12 col-sm-8 col-lg-8 main-login" *ngIf="!contactListStatus">-->
-  <!--Type <a href=""> # </a> into the search box it should display a list of tags here.-->
-  <!--Clicking on a tag will display more details of contact-->
-  <!--</div>-->
+  <div class="col-12 col-sm-8 col-lg-8 main-login text-center" *ngIf="!term">
+    <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i> <br/>
+    Search contact by typing name, company or simply input <a href=""> # </a> to retrieve all <br/>
+    Clicking on a tag will display more details of contact
+  </div>
 
   <!--<div class="col-12 col-sm-8 col-lg-8 main-contact" *ngIf="contactListStatus">-->
   <!--<contact-list [contacts]="filteredContacts" ></contact-list>-->

@@ -5,15 +5,19 @@ import {Pipe, PipeTransform} from '@angular/core';
 })
 export class CustomSearchPipe implements PipeTransform {
 
-  transform(contacts: any, term: any): any {
+  transform(contacts: any, term: string): any {
 
-    // Checck to see if undefined
-    if (term === undefined) return contacts;
+    // Checck to see if #tag input
+    var hashInput = "#";
+    if (term === hashInput) return contacts;
 
     // Return updated array
-    return contacts.filter(function (contact) {
-      return contact.name.toLowerCase().includes(term.toLowerCase())
+    if (term) return contacts.filter(function (contact) {
+      return contact.name.toLowerCase().includes(term.toLowerCase()) || contact.company.toLowerCase().includes(term.toLowerCase())
     })
+
   }
 
 }
+
+

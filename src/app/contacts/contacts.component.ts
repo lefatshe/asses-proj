@@ -19,7 +19,7 @@ export class ContactsComponent implements OnInit {
 
   contactListStatus: boolean;
 
-  term: string;
+  term: string = "";
 
   constructor(private contactsService: ContactsService, private router: ActivatedRoute) {
   }
