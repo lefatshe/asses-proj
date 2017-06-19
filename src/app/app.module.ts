@@ -31,6 +31,7 @@ import {GrowlModule} from 'primeng/primeng';
 import { CustomSearchPipe } from './shared/pipe/custom-search.pipe';
 import { TagOnContactComponent } from './tags-list/search/tag-on-contact/tag-on-contact.component';
 import { OnContactSearchComponent } from './new-tag/on-contact-search/on-contact-search.component';
+import { SnippetDisplayComponent } from './contacts/snippet-display/snippet-display.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { OnContactSearchComponent } from './new-tag/on-contact-search/on-contact
     ContactListComponent,
     CustomSearchPipe,
     TagOnContactComponent,
-    OnContactSearchComponent
+    OnContactSearchComponent,
+    SnippetDisplayComponent
   ],
   imports: [
     BrowserModule,

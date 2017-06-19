@@ -11,15 +11,23 @@
       <li *ngFor="let contact of allContacts | customSearch:term"
           class="list-group-item">
         <strong>{{contact.name}} {{contact.surname}}</strong>
-            <br/> {{contact.position}} at {{contact.company}}
-            <div class="btn-group">
-              <button type="button" class="btn btn-default dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                + Tags
-              </button>
-              <div class="dropdown-menu padding">
-                <tag-on-contact [tagId]="contact.$key"></tag-on-contact>
-              </div>
-            </div>
+        <br/> {{contact.position}} at {{contact.company}}
+
+        <div class="btn-group">
+          <button type="button" class="btn btn-default dropdown-toggle btn-sm" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+            + Tags
+          </button>
+          <div class="dropdown-menu padding">
+            <tag-on-contact [tagId]="contact.$key"></tag-on-contact>
+          </div>
+        </div>
+
+        <span class="more-btn pull-right"
+              [class.selected]="contact === selected"
+              (click)="onSelect(contact)">
+            <img src="../../assets/images/svg/more.svg" width="20px">
+        </span>
       </li>
     </ul>
 
@@ -30,6 +38,10 @@
     <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i> <br/>
     Search contact by typing name, company or simply input <a href=""> # </a> to retrieve all <br/>
     Clicking on a tag will display more details of contact
+  </div>
+
+  <div class="col-12 col-sm-8 col-lg-8 main-snippet" *ngIf="term">
+    <snippet-display [contact]="selected"></snippet-display>
   </div>
 
 

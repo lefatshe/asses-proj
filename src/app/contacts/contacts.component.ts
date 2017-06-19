@@ -23,22 +23,20 @@ export class ContactsComponent implements OnInit {
   contactListStatus: boolean;
 
   term: string = "";
-  exampleTag= "-KmbhOzAFsiBblk5wRcj";
+
+  selected: Contacts;
+
 
   constructor(private contactsService: ContactsService, private router: ActivatedRoute) {
   }
 
-  // ngOnInit() {
-  //   this.contacts$ = this.contactsService.findAllContacts()
-  // }
 
   ngOnInit() {
-    this.hashKey();
+    this.startService();
     this.contactListStatus = false;
   }
 
-  hashKey() {
-
+  startService() {
     this.contactsService.findAllContacts()
       .do(console.log)
       .subscribe(
@@ -46,8 +44,9 @@ export class ContactsComponent implements OnInit {
       )
   }
 
-  FreeTextSearch(search) {
-
+  onSelect(contact): void {
+    this.selected = contact;
+    console.log('contact selected',contact)
   }
 
   searchValue(search: string) {
@@ -55,19 +54,5 @@ export class ContactsComponent implements OnInit {
     this.filteredContacts = this.allContacts.filter(contact => contact.name.includes(searchValue))
   }
 
-
-  search(search: string) {
-    if (search === '#') {
-      this.contactListStatus = true;
-    } else {
-      this.searchValue(search)
-      this.contactListStatus = true;
-    }
-
-    if (search === '') {
-      this.contactListStatus = false;
-    }
-
-  }
 
 }

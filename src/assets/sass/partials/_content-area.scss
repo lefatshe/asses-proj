@@ -12,6 +12,14 @@
   transition: transform .3s ease-in-out, box-shadow .3s ease-in-out;
 }
 
+.more-btn {
+  background: #EEE;
+  color: white !important;
+  border-radius: 100%;
+  padding: 3px;
+  cursor: pointer;
+}
+
 .cap {
   color: #1E8FE1;
   padding-left: 18px;
@@ -40,6 +48,21 @@ span.circle-info.pull-right {
   line-height: 0px;
 }
 
+.article-head {
+  display: block;
+  overflow: hidden;
+}
+
+.col-md-10.contact-name {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.name-holder {
+  padding-top: 8px;
+  font-size: 24px;
+}
+
 .main-login {
   padding: 10%;
   text-align: center;
@@ -50,8 +73,9 @@ md-card.mat-card {
 }
 
 .bg-circle {
+  font-size: 37px;
   background: #1E8FE1;
   color: white;
-  padding: 2px 5px;
+  padding: 0px 10px;
   font-weight: bold;
 }
