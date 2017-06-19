@@ -1,0 +1,14 @@
+<p-growl [(value)]="msgs" sticky="true"></p-growl>
+
+
+<form [formGroup]="form" autocomplete="off" novalidate>
+  <fieldset>
+    <md-input-container>
+      <input class="" mdInput placeholder="Add Tag" type="input" formControlName="description" #tag>
+    </md-input-container>
+    <span class="error-string" *ngIf="isError('description', 'required')"> Required Field</span>
+    <button class="btn btn-sm main-btn pull-right" [disabled]="!form.valid" (click)="saveTag(tag.value)">
+      <i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i>
+    </button>
+  </fieldset>
+</form>

@@ -1,11 +1,13 @@
-<p>
-  ID : {{tagId}}
-</p>
+<!--<p>-->
+  <!--ID : {{tagId}}-->
+<!--</p>-->
+<p-growl [(value)]="msgs" sticky="true"></p-growl>
+<on-contact-add-tag [tagId]="tagId"></on-contact-add-tag>
 
 <div *ngIf="tagsOnContact" class="tag-container">
-  <span *ngFor="let tag of tagsOnContact">
-    <label> # </label>
-    <a class="tag">{{ tag.description }}</a>
+  <span *ngFor="let tag of tagsOnContact" (click)="removeTag(tag)" class="class-tag">
+    <i class="fa fa-times" aria-hidden="true"></i>
+    {{ tag.description }}
   </span>
 </div>
 

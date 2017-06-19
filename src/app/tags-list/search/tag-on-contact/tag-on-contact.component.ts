@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Observable} from "rxjs/Observable";
 import {Tags} from "../../../shared/model/tags";
 import {ContactsService} from "../../../shared/model/contacts.service";
+import {Message} from 'primeng/primeng';
 
 @Component({
   selector: 'tag-on-contact',
@@ -14,6 +15,7 @@ export class TagOnContactComponent implements OnInit {
   tagId: string;
 
   tagsOnContact: Tags[];
+  msgs: Message[];
 
   constructor(private contactsService: ContactsService) {
   }
@@ -24,6 +26,14 @@ export class TagOnContactComponent implements OnInit {
       .subscribe(
         tagsOnContact => this.tagsOnContact = tagsOnContact
       )
+  }
+
+  removeTag(tag){
+    event.stopPropagation();
+    this.contactsService.removeTag(tag.$key)
+    this.msgs = [];
+    this.msgs.push({severity:'info', summary:'Tag removed', detail:tag.description});
+
   }
 
 }

@@ -52,6 +52,10 @@ export class ContactsService {
       .map(tagsInContact => tagsInContact.map(tagsInContact => tagsInContact.$key))
   }
 
+  removeTag(key){
+      this.af.database.object('tags/' + key).remove();
+  }
+
 }
 
 

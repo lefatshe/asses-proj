@@ -1,7 +1,27 @@
-tags-list.tag-container {
+.tag-container {
   display: block;
   overflow: hidden;
   background: #efefef;
   padding: 10px;
   clear: both;
 }
+
+span.class-tag {
+  cursor: pointer;
+  border: 1px solid transparent;
+  padding: 3px 6px;
+  border-radius: 4px;
+  .fa {
+    display: none;
+    color: red;
+  }
+  &:hover {
+    background: #1E8FE1;
+    color: white;
+    border: 1px solid #cccccc;
+    .fa {
+      display: inline-block;
+    }
+  }
+}
+
