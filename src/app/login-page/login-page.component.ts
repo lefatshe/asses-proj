@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AuthServiceService} from "../shared/auth/auth-service.service";
 import {Router} from "@angular/router";
+import {AngularFire, AuthMethods, AuthProviders} from "angularfire2";
 
 @Component({
   selector: 'app-login-page',
@@ -13,9 +14,11 @@ export class LoginPageComponent implements OnInit {
   form: FormGroup;
   errorString: string;
 
-  constructor(private fb: FormBuilder,
+  constructor(private af: AngularFire,
+              private fb: FormBuilder,
               private authService: AuthServiceService,
-              private router: Router) { }
+              private router: Router) {
+  }
 
   ngOnInit() {
     this.form = this.fb.group({
@@ -24,20 +27,35 @@ export class LoginPageComponent implements OnInit {
     })
   }
 
-  ifError(error){
+  ifError(error) {
     this.errorString = error.message;
   }
 
-  login(){
-      const formValue = this.form.value;
+  loginFb() {
 
-      this.authService.loginUser(formValue.email, formValue.pass)
-        .subscribe(
-          ()=> {
-            this.router.navigate(['/contacts']);
-          },
-          err => this.ifError(err)
-        );
+    this.af.auth.login({
+      provider: AuthProviders.Facebook,
+      method: AuthMethods.Redirect
+    })
+      .then(
+        () => {
+          this.router.navigate(['/contacts']);
+        },
+        err => this.ifError(err)
+      );
+  }
+
+
+  login() {
+    const formValue = this.form.value;
+
+    this.authService.loginUser(formValue.email, formValue.pass)
+      .subscribe(
+        () => {
+          this.router.navigate(['/contacts']);
+        },
+        err => this.ifError(err)
+      );
   }
 
 }

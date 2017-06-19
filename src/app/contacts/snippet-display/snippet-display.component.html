@@ -23,8 +23,10 @@
     </ul>
     <hr/>
     <div class="pull-right">
-      <button class="btn btn-default"> Cancel </button>
-      <button class="btn btn-primary"> View </button>
+      <button class="btn btn btn-default"> Cancel </button>
+      <button class="btn btn btn-default"
+              [routerLink]="contact.name"
+              [queryParams]="{contactId: contact.$key }"> View </button>
     </div>
   </div>
 
