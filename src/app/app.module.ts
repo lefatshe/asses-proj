@@ -28,6 +28,7 @@ import {BrowserAnimationsModule, NoopAnimationsModule} from "@angular/platform-b
 import {MdButtonModule, MdCardModule, MdCheckboxModule, MdInputModule, MdListModule} from "@angular/material";
 import { ContactListComponent } from './contact-list/contact-list.component';
 import {GrowlModule} from 'primeng/primeng';
+import { CustomSearchPipe } from './shared/pipe/custom-search.pipe';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import {GrowlModule} from 'primeng/primeng';
     NewTagComponent,
     RegisterPageComponent,
     LoginPageComponent,
-    ContactListComponent
+    ContactListComponent,
+    CustomSearchPipe
   ],
   imports: [
     BrowserModule,

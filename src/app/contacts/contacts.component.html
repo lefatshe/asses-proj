@@ -6,24 +6,24 @@
     <md-input-container class="stretched">
       <input class="text-capitalize"
              mdInput placeholder="Search Contacts" type="search"
-             (keyup)="search(input.value)"
+             [(ngModel)]="term"
              #input>
     </md-input-container>
 
-    <div>
-      <div *ngFor="let contact of allContacts | async" class="search-result" >
-        {{contact.name}} - {{contact.company}}
-      </div>
-    </div>
+    <ul>
+      <li *ngFor="let contact of allContacts | customSearch:term">
+        {{contact.name}} {{contact.surname}} @ {{contact.company}}
+      </li>
+    </ul>
 
   </div>
 
   <!--<div class="col-12 col-sm-8 col-lg-8 main-login" *ngIf="!contactListStatus">-->
-    <!--Type <a href=""> # </a> into the search box it should display a list of tags here.-->
-    <!--Clicking on a tag will display more details of contact-->
+  <!--Type <a href=""> # </a> into the search box it should display a list of tags here.-->
+  <!--Clicking on a tag will display more details of contact-->
   <!--</div>-->
 
-  <div class="col-12 col-sm-8 col-lg-8 main-contact" *ngIf="contactListStatus">
-    <!--<contact-list [contacts]="filteredContacts" ></contact-list>-->
-  </div>
+  <!--<div class="col-12 col-sm-8 col-lg-8 main-contact" *ngIf="contactListStatus">-->
+  <!--<contact-list [contacts]="filteredContacts" ></contact-list>-->
+  <!--</div>-->
 </div>

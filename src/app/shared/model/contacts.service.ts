@@ -15,15 +15,8 @@ export class ContactsService {
   //   return this.db.list('contacts').map(Contacts.fromJsonArray);
   // }
 
-  findAllContacts(term: string): Observable<Contacts[]> {
-    // return this.af.database.list('contacts').map(Contacts.fromJsonArray);
-
-    return this.db.list('contacts', {
-      query: {
-        orderByChild: 'name',
-        equalTo: term
-      }
-    }).map(Contacts.fromJsonArray);
+  findAllContacts(): Observable<Contacts[]> {
+    return this.af.database.list('contacts');
   }
 
   findContactsByName(contactName: string): Observable<Contacts> {
