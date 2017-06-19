@@ -12,6 +12,14 @@
           class="list-group-item">
         <strong>{{contact.name}} {{contact.surname}}</strong>
             <br/> {{contact.position}} at {{contact.company}}
+            <div class="btn-group">
+              <button type="button" class="btn btn-default dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                + Tags
+              </button>
+              <ul class="dropdown-menu">
+                <tag-on-contact [tagId]="contact.$key"></tag-on-contact>
+              </ul>
+            </div>
       </li>
     </ul>
 
@@ -23,8 +31,5 @@
     Search contact by typing name, company or simply input <a href=""> # </a> to retrieve all <br/>
     Clicking on a tag will display more details of contact
   </div>
-
-  <!--<div class="col-12 col-sm-8 col-lg-8 main-contact" *ngIf="contactListStatus">-->
-  <!--<contact-list [contacts]="filteredContacts" ></contact-list>-->
-  <!--</div>-->
+  
 </div>

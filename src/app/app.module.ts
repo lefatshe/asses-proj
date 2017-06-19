@@ -29,6 +29,7 @@ import {MdButtonModule, MdCardModule, MdCheckboxModule, MdInputModule, MdListMod
 import { ContactListComponent } from './contact-list/contact-list.component';
 import {GrowlModule} from 'primeng/primeng';
 import { CustomSearchPipe } from './shared/pipe/custom-search.pipe';
+import { TagOnContactComponent } from './tags-list/search/tag-on-contact/tag-on-contact.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { CustomSearchPipe } from './shared/pipe/custom-search.pipe';
     RegisterPageComponent,
     LoginPageComponent,
     ContactListComponent,
-    CustomSearchPipe
+    CustomSearchPipe,
+    TagOnContactComponent
   ],
   imports: [
     BrowserModule,

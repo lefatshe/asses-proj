@@ -4,6 +4,7 @@ import {Observable} from "rxjs/Observable";
 import {Contacts} from "../shared/model/contacts";
 import {ActivatedRoute, Router} from "@angular/router";
 import {CustomSearchPipe} from '../shared/pipe/custom-search.pipe';
+import {Tags} from "../shared/model/tags";
 
 @Component({
   selector: 'app-contacts',
@@ -13,6 +14,8 @@ import {CustomSearchPipe} from '../shared/pipe/custom-search.pipe';
 export class ContactsComponent implements OnInit {
 
   contacts$: Observable<Contacts[]>;
+  tags$: Observable<Tags[]>;
+
 
   allContacts: Contacts[];
   filteredContacts: Contacts[];
@@ -34,6 +37,7 @@ export class ContactsComponent implements OnInit {
   }
 
   hashKey() {
+
     this.contactsService.findAllContacts()
       .do(console.log)
       .subscribe(
