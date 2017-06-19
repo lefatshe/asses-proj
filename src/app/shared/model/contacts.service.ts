@@ -35,10 +35,21 @@ export class ContactsService {
   }
 
   findAllTagsForContact(contactName: string): Observable<Tags[]> {
-
     return this.findTagKeysPerContactName(contactName)
       .map(tagsInContact => tagsInContact.map(tagsKey => this.db.object('tags/' + tagsKey)))
       .flatMap(firebaseObservables => Observable.combineLatest(firebaseObservables))
+  }
+
+  tagOn(contactName: string): Observable<Tags[]> {
+    return this.tagOnContact(contactName)
+      .map(tagsInContact => tagsInContact.map(tagsKey => this.db.object('tags/' + tagsKey)))
+      .flatMap(firebaseObservables => Observable.combineLatest(firebaseObservables))
+  }
+
+  tagOnContact(contactName: string): Observable<string[]> {
+    return this.findContactsByName(contactName)
+      .switchMap(contact => this.db.list(`tagsPerContact/${contactName}`))
+      .map(tagsInContact => tagsInContact.map(tagsInContact => tagsInContact.$key))
   }
 
 }

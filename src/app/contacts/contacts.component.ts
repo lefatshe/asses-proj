@@ -23,6 +23,7 @@ export class ContactsComponent implements OnInit {
   contactListStatus: boolean;
 
   term: string = "";
+  exampleTag= "-KmbhOzAFsiBblk5wRcj";
 
   constructor(private contactsService: ContactsService, private router: ActivatedRoute) {
   }
