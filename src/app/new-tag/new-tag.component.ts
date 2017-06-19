@@ -35,7 +35,7 @@ export class NewTagComponent implements OnInit {
     })
   }
 
-  saveTag(tag, form) {
+  saveTag(tag) {
     console.log('Adding Tag', tag);
     console.log('Under Contact', this.contactId);
 

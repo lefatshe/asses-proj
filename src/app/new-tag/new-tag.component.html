@@ -4,14 +4,9 @@
 <form [formGroup]="form" autocomplete="off" novalidate>
   <fieldset>
     <md-input-container>
-      <input class="" mdInput placeholder="Add Tag" type="input" formControlName="description" #tagInput>
+      <input class="" mdInput placeholder="Add Tag" type="input" formControlName="description" #tag>
     </md-input-container>
-
     <span class="error-string" *ngIf="isError('description', 'required')"> Required Field</span>
-
-    <button class="btn btn-sm main-btn pull-right"
-            [disabled]="!form.valid"
-            (click)="saveTag(tagInput.value)"> Add Tag </button>
-
+    <button class="btn btn-sm main-btn pull-right" [disabled]="!form.valid" (click)="saveTag(tag.value)"> Add Tag </button>
   </fieldset>
 </form>
