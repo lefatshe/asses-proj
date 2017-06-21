@@ -5,9 +5,12 @@
 <on-contact-add-tag [tagId]="tagId"></on-contact-add-tag>
 
 <div *ngIf="tagsOnContact" class="tag-container">
-  <small class="tag-controls pull-right">Edit / Delete</small><br/>
-  <span *ngFor="let tag of tagsOnContact" class="class-tag">
-    <p-checkbox  name="tags" value="{{tag.$key}}" [(ngModel)]="checked" (ngModelChange)="tagOut($event,tag.$key)"></p-checkbox>
+  <small class="tag-controls pull-right">
+    <i (click)="edit()" class="edit {{editEnabled}}">Edit </i> /
+    <i class="delete {{editEnabled}}" (click)="delete()">Delete</i>
+  </small><br/>
+  <span *ngFor="let tag of tagsOnContact" class="class-tag {{tag}}">
+    <p-checkbox [disabled]="editEnabled"  name="tags" value="{{tag.$key}}" [(ngModel)]="checked" (ngModelChange)="tagOut($event,tag.$key, tag.contactId)"></p-checkbox>
     {{ tag.description }}
   </span>
 </div>

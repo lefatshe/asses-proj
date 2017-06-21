@@ -1,5 +1,12 @@
-<span *ngFor="let tag of tags">
-    <label> # </label>
-    <a class="tag">{{ tag.description }}</a>
-</span>
+<!--<span *ngFor="let tag of tags">-->
+    <!--<label> # </label>-->
+    <!--<a class="tag">{{ tag.description }}</a>-->
+<!--</span>-->
 
+
+<div *ngIf="tags" class="listing-tags">
+  <span *ngFor="let tag of tags" class="class-tag {{tag}}">
+    <strong>#</strong>
+    {{ tag.description }}
+  </span>
+</div>

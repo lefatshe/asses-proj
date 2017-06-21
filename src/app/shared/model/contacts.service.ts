@@ -8,7 +8,7 @@ import {switchMap} from "rxjs/operator/switchMap";
 @Injectable()
 export class ContactsService {
 
-  constructor(private db: AngularFireDatabase, private af: AngularFire, ) {
+  constructor(private db: AngularFireDatabase, private af: AngularFire,) {
   }
 
   // findAllContacts(): Observable<Contacts[]> {
@@ -52,10 +52,22 @@ export class ContactsService {
       .map(tagsInContact => tagsInContact.map(tagsInContact => tagsInContact.$key))
   }
 
-  removeTag(key){
-      this.af.database.object('tags/' + key).remove();
+  removeTag(key) {
+    this.af.database.object('tags/' + key).remove();
+  }
+
+  removeTagArr(tagArr, contactId) {
+    tagArr.forEach((item) => {
+      console.log('remove', item);
+      this.af.database.object('tags/' + item).remove();
+      this.af.database.object('tagsPerContact/' + contactId + '/' + item).remove();
+    });
+
+
   }
 
 }
+
+
 
 

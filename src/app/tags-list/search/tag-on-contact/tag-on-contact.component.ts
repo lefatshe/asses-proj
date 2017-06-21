@@ -17,6 +17,10 @@ export class TagOnContactComponent implements OnInit {
   tagsOnContact: Tags[];
   msgs: Message[];
   checked: boolean = false;
+  tagChain = [];
+  contactID = [];
+
+  editEnabled:boolean = true;
 
   constructor(private contactsService: ContactsService) {
   }
@@ -29,10 +33,34 @@ export class TagOnContactComponent implements OnInit {
       )
   }
 
-  tagOut(tagId, element){
-    console.log(tagId);
-    console.log(element);
+  edit(){
     event.stopPropagation();
+    this.editEnabled = !this.editEnabled;
+    console.log(this.editEnabled)
+  }
+
+  delete(){
+    event.stopPropagation();
+    if(this.tagChain.length > 0){
+      console.log('delete tags', this.tagChain);
+      console.log('delete tags per contact target ', this.contactID);
+      this.contactsService.removeTagArr(this.tagChain, this.contactID);
+    }else {
+      console.log('nothing to delete')
+    }
+
+  }
+
+  tagOut(tagChain, element, contactId){
+    event.stopPropagation();
+
+    // console.log(element);
+    console.log('tag chain', tagChain);
+    console.log('contact chain', contactId);
+
+    this.tagChain = tagChain;
+    this.contactID = contactId;
+
     // console.log('c', tagId);
 
     // if (tagId !== true) {
