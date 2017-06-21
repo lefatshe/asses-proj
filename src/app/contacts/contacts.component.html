@@ -7,12 +7,14 @@
       <input mdInput placeholder="Search" type="search" [(ngModel)]="term">
     </md-input-container>
 
+    <strong *ngIf="term === '#' "></strong>
     <ul *ngIf="term === '#' " class="list-group">
       <li *ngFor="let tags of allTags "
           class="list-group-item">
         {{tags.description}}
       </li>
     </ul>
+
 
     <ul class="list-group">
       <li *ngFor="let contact of allContacts | customSearch:term"
@@ -26,7 +28,7 @@
             + Tags
           </button>
           <div class="dropdown-menu padding">
-            <tag-on-contact [tagId]="contact.$key"></tag-on-contact>
+            <tag-on-contact [tagId]="contact.$key" class="list-tag-edits"></tag-on-contact>
           </div>
         </div>
 
@@ -35,6 +37,9 @@
               (click)="onSelect(contact)">
             <img src="../../assets/images/svg/more.svg" width="20px">
         </span>
+
+        <hr/>
+        <tag-on-contact [tagId]="contact.$key" class="list-tag-only"></tag-on-contact>
       </li>
     </ul>
 
