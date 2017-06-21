@@ -16,6 +16,7 @@ export class TagOnContactComponent implements OnInit {
 
   tagsOnContact: Tags[];
   msgs: Message[];
+  checked: boolean = false;
 
   constructor(private contactsService: ContactsService) {
   }
@@ -26,6 +27,19 @@ export class TagOnContactComponent implements OnInit {
       .subscribe(
         tagsOnContact => this.tagsOnContact = tagsOnContact
       )
+  }
+
+  tagOut(tagId, element){
+    console.log(tagId);
+    console.log(element);
+    event.stopPropagation();
+    // console.log('c', tagId);
+
+    // if (tagId !== true) {
+    //   console.log('a', tagId);
+    // } else {
+    //   console.log('r', tagId);
+    // }
   }
 
   removeTag(tag){

@@ -9,6 +9,7 @@
   }
 
   span.class-tag {
+    display: block;
     cursor: pointer;
     border: 1px solid transparent;
     padding: 3px 6px;
@@ -30,7 +31,12 @@
 
 
 .list-tag-only {
-  .fa, form {
+
+  .fa, form, p-checkbox, input {
+    display: none !important;
+  }
+
+  .tag-controls{
     display: none !important;
   }
 

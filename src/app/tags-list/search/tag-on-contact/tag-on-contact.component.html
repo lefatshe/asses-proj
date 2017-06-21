@@ -1,13 +1,21 @@
 <!--<p>-->
-  <!--ID : {{tagId}}-->
+<!--ID : {{tagId}}-->
 <!--</p>-->
 <p-growl [(value)]="msgs" sticky="true"></p-growl>
 <on-contact-add-tag [tagId]="tagId"></on-contact-add-tag>
 
 <div *ngIf="tagsOnContact" class="tag-container">
-  <span *ngFor="let tag of tagsOnContact" (click)="removeTag(tag)" class="class-tag">
-    <i class="fa fa-times" aria-hidden="true"></i>
+  <small class="tag-controls pull-right">Edit / Delete</small><br/>
+  <span *ngFor="let tag of tagsOnContact" class="class-tag">
+    <p-checkbox  name="tags" value="{{tag.$key}}" [(ngModel)]="checked" (ngModelChange)="tagOut($event,tag.$key)"></p-checkbox>
     {{ tag.description }}
   </span>
 </div>
 
+<!--(click)="removeTag(tag)" class="class-tag-->
+<!--<ul *ngIf="tagsOnContact" class="list-group">-->
+  <!--<li *ngFor="let tags of tagsOnContact "-->
+      <!--class="list-group-item">-->
+    <!--{{tags.description}}-->
+  <!--</li>-->
+<!--</ul>-->
