@@ -5,6 +5,7 @@ import {Contacts} from "../shared/model/contacts";
 import {ActivatedRoute, Router} from "@angular/router";
 import {CustomSearchPipe} from '../shared/pipe/custom-search.pipe';
 import {Tags} from "../shared/model/tags";
+import {TagsService} from "../shared/model/tags.service";
 
 @Component({
   selector: 'app-contacts',
@@ -20,14 +21,17 @@ export class ContactsComponent implements OnInit {
   allContacts: Contacts[];
   filteredContacts: Contacts[];
 
+  allTags: Tags[];
+  filteredTags: Tags[];
+
   contactListStatus: boolean;
 
   term: string = "";
-
   selected: Contacts;
 
-
-  constructor(private contactsService: ContactsService, private router: ActivatedRoute) {
+  constructor(private contactsService: ContactsService,
+              private router: ActivatedRoute,
+              private tagsService: TagsService) {
   }
 
 
@@ -40,7 +44,13 @@ export class ContactsComponent implements OnInit {
     this.contactsService.findAllContacts()
       .do(console.log)
       .subscribe(
-        tags => this.allContacts = this.filteredContacts = tags
+        contacts => this.allContacts = this.filteredContacts = contacts
+      )
+
+    this.tagsService.findAllTags()
+      .do(console.log)
+      .subscribe(
+        tags => this.allTags = this.filteredTags = tags
       )
   }
 

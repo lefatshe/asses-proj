@@ -35,7 +35,7 @@ export class LoginPageComponent implements OnInit {
 
     this.af.auth.login({
       provider: AuthProviders.Facebook,
-      method: AuthMethods.Redirect
+      method: AuthMethods.Popup
     })
       .then(
         () => {

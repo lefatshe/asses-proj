@@ -7,6 +7,13 @@
       <input mdInput placeholder="Search" type="search" [(ngModel)]="term">
     </md-input-container>
 
+    <ul *ngIf="term === '#' " class="list-group">
+      <li *ngFor="let tags of allTags "
+          class="list-group-item">
+        {{tags.description}}
+      </li>
+    </ul>
+
     <ul class="list-group">
       <li *ngFor="let contact of allContacts | customSearch:term"
           class="list-group-item">
