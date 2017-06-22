@@ -2,7 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Observable} from "rxjs/Observable";
 import {Tags} from "../../../shared/model/tags";
 import {ContactsService} from "../../../shared/model/contacts.service";
-import {Message} from 'primeng/primeng';
+import {ConfirmationService, Message} from 'primeng/primeng';
 
 @Component({
   selector: 'tag-on-contact',
@@ -22,7 +22,8 @@ export class TagOnContactComponent implements OnInit {
 
   editEnabled:boolean = true;
 
-  constructor(private contactsService: ContactsService) {
+  constructor(private contactsService: ContactsService,
+              private confirmationService: ConfirmationService) {
   }
 
   ngOnInit() {
@@ -39,21 +40,30 @@ export class TagOnContactComponent implements OnInit {
     console.log(this.editEnabled)
   }
 
-  delete(){
-    event.stopPropagation();
-    if(this.tagChain.length > 0){
-      console.log('delete tags', this.tagChain);
-      console.log('delete tags per contact target ', this.contactID);
-      this.contactsService.removeTagArr(this.tagChain, this.contactID);
-    }else {
-      console.log('nothing to delete')
-    }
+  verifyDelete() {
+    this.confirmationService.confirm({
+      message: 'Are you sure that you want to perform this action?',
+      accept: () => {
+        console.log('delete tags', this.tagChain);
+        console.log('delete tags per contact target ', this.contactID);
+        this.contactsService.removeTagArr(this.tagChain, this.contactID);
+      }
+    });
+  }
 
+  delete(){
+    if(this.tagChain.length > 0){
+      this.msgs = [];
+      this.msgs.push({severity:'warn', summary:'Tag/s Removed', detail:''});
+      this.contactsService.removeTagArr(this.tagChain, this.contactID);
+      event.stopPropagation();
+    }else {
+      console.log('nothing to delete');
+    }
   }
 
   tagOut(tagChain, element, contactId){
     event.stopPropagation();
-
     // console.log(element);
     console.log('tag chain', tagChain);
     console.log('contact chain', contactId);
@@ -61,13 +71,7 @@ export class TagOnContactComponent implements OnInit {
     this.tagChain = tagChain;
     this.contactID = contactId;
 
-    // console.log('c', tagId);
 
-    // if (tagId !== true) {
-    //   console.log('a', tagId);
-    // } else {
-    //   console.log('r', tagId);
-    // }
   }
 
   removeTag(tag){

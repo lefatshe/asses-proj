@@ -1,12 +1,11 @@
-<p-growl [(value)]="msgs" sticky="true"></p-growl>
-
+<p-messages [(value)]="msgs"></p-messages>
 
 <form [formGroup]="form" autocomplete="off" novalidate>
   <fieldset>
     <md-input-container>
-      <input class="" mdInput placeholder="Add Tag" type="input" formControlName="description" #tag>
+      <input class="text-capitalize" [(ngModel)]="term" mdInput placeholder="Add Tag" type="input" formControlName="description" #tag>
     </md-input-container>
-    <span class="error-string" *ngIf="isError('description', 'required')"> Required Field</span>
+    <!--<span class="error-string" *ngIf="isError('description', 'required')"> + Added</span>-->
     <button class="btn btn-sm main-btn pull-right" [disabled]="!form.valid" (click)="saveTag(tag.value)">
       <i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i>
     </button>

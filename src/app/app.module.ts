@@ -27,7 +27,7 @@ import {AuthGuard} from "./shared/auth/auth.guard";
 import {BrowserAnimationsModule, NoopAnimationsModule} from "@angular/platform-browser/animations";
 import {MdButtonModule, MdCardModule, MdCheckboxModule, MdInputModule, MdListModule} from "@angular/material";
 import { ContactListComponent } from './contact-list/contact-list.component';
-import {GrowlModule, CheckboxModule} from 'primeng/primeng';
+import {GrowlModule, CheckboxModule, ConfirmationService, ConfirmDialogModule, MessagesModule} from 'primeng/primeng';
 import { CustomSearchPipe } from './shared/pipe/custom-search.pipe';
 import { TagOnContactComponent } from './tags-list/search/tag-on-contact/tag-on-contact.component';
 import { OnContactSearchComponent } from './new-tag/on-contact-search/on-contact-search.component';
@@ -59,11 +59,11 @@ import { SnippetDisplayComponent } from './contacts/snippet-display/snippet-disp
     BrowserAnimationsModule,
     NoopAnimationsModule,
     MdButtonModule, MdCheckboxModule, MdInputModule, MdListModule, MdCardModule,
-    GrowlModule, CheckboxModule,
+    GrowlModule, CheckboxModule, ConfirmDialogModule, MessagesModule,
     AngularFireModule.initializeApp(firebaseConfig, authConfiqurations),
     RouterModule.forRoot(routerConfig)
   ],
-  providers: [ContactsService, TagsService, AuthServiceService, AuthGuard],
+  providers: [ContactsService, TagsService, AuthServiceService, AuthGuard, ConfirmationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

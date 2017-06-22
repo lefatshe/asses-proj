@@ -22,6 +22,8 @@ export class OnContactSearchComponent implements OnInit {
   contactId: string;
   msgs: Message[] = [];
 
+  term;
+
   constructor(private route: ActivatedRoute,
               private fb: FormBuilder,
               private tagService: TagsService,
@@ -48,11 +50,14 @@ export class OnContactSearchComponent implements OnInit {
     console.log('Adding Tag', tag);
     console.log('Under Contact', this.tagId);
 
+    this.term = '';
+    console.log("term is now", this.term);
+
     this.tagService.createNewtagForContact(this.tagId, tag)
       .subscribe(
         () => {
           this.msgs = [];
-          this.msgs.push({severity:'info', summary:'New Tag Added', detail:tag});
+          this.msgs.push({severity:'success', summary:'Tag Added', detail:tag});
           tag = '';
         },
         err => alert(`err ${err}`)

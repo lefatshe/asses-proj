@@ -1,7 +1,7 @@
 <!--<p>-->
 <!--ID : {{tagId}}-->
 <!--</p>-->
-<p-growl [(value)]="msgs" sticky="true"></p-growl>
+<p-messages [(value)]="msgs"></p-messages>
 <on-contact-add-tag [tagId]="tagId"></on-contact-add-tag>
 
 <div *ngIf="tagsOnContact" class="tag-container">

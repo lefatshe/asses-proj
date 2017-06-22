@@ -18,6 +18,7 @@ export class NewTagComponent implements OnInit {
   form: FormGroup;
   contactId: string;
   msgs: Message[] = [];
+  term;
 
   constructor(private route: ActivatedRoute,
               private fb: FormBuilder,
@@ -43,11 +44,12 @@ export class NewTagComponent implements OnInit {
       .subscribe(
         () => {
           this.msgs = [];
-          this.msgs.push({severity:'info', summary:'New Tag Added', detail:tag});
-          tag = '';
+          this.msgs.push({severity:'info', summary:tag, detail:'Added Succesfully'});
         },
         err => alert(`err ${err}`)
       );
+
+
   }
 
   isError(field: string, error: string) {
